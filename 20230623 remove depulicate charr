@@ -1,0 +1,31 @@
+public class Main {
+    public static void main(String[] args) {
+        String str = "Java";
+        char maxOccurringChar = getMaxOccuringChar(str);
+        System.out.println("Max occurring character is " + maxOccurringChar);
+
+        String newStr = removeMaxOccuringChar(str, maxOccurringChar);
+        System.out.println("New string after removing max occurring character is " + newStr);
+    }
+
+    static char getMaxOccuringChar(String str) {
+        int[] count = new int[256]; 
+        int len = str.length(); 
+        for (int i = 0; i < len; i++) 
+            count[str.charAt(i)]++; 
+  
+        int max = -1;
+        char result = ' ';   
+        for (int i = 0; i < len; i++) { 
+            if (max < count[str.charAt(i)]) { 
+                max = count[str.charAt(i)]; 
+                result = str.charAt(i); 
+            } 
+        } 
+        return result; 
+    }
+
+    static String removeMaxOccuringChar(String str, char c) {
+        return str.replace(String.valueOf(c), "");
+    }
+}
