@@ -1,0 +1,32 @@
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a new HashMap
+        HashMap<String, String> studentGrades = new HashMap<>();
+
+        // Add some students and their grades
+        studentGrades.put("Alice", "A");
+        studentGrades.put("Bob", "B");
+        studentGrades.put("Charlie", "A");
+        studentGrades.put("Dave", "C");
+
+        // Retrieve the grade of a specific student
+        String aliceGrade = studentGrades.get("Alice");
+        System.out.println("Alice's grade: " + aliceGrade);  // prints "Alice's grade: A"
+
+        // Check if a student is in the map
+        if (studentGrades.containsKey("Bob")) {
+            System.out.println("Bob is in the map");  // prints "Bob is in the map"
+        }
+
+        // Remove a student from the map
+        studentGrades.remove("Dave");
+
+        // Iterate over the students in the map
+        for (String student : studentGrades.keySet()) {
+            String grade = studentGrades.get(student);
+            System.out.println(student + "'s grade: " + grade);
+        }
+    }
+}
